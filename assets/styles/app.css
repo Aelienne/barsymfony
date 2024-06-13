@@ -1,3 +1,22 @@
-body {
-    background-color: skyblue;
+* {
+  margin: 0px;
+  padding: 0px;
 }
+* body {
+  background-color: rgb(49, 46, 46);
+}
+* body nav {
+  background-color: rgb(2, 0, 20);
+}
+* body nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
+* body nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 10px;
+  font-size: 20px;
+}/*# sourceMappingURL=app.css.map */
