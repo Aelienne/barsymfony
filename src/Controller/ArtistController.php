@@ -11,7 +11,7 @@ class ArtistController extends AbstractController
     #[Route('/artist', name: 'app_artist')]
     public function index(): Response
     {
-        return $this->render('artist/index.html.twig', [
+        return $this->render('artist/artist_list.html.twig', [
             'controller_name' => 'ArtistController',
         ]);
     }
