@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Home Page !{% endblock %}
 
 {% block body %}
 <div>
     <div class="img-left">
-    <h2>Bars</h2>
+    <a href={{ path('app_bar') }}>Bars</a>
     </div>
     <div class="img-right">
-    <h2>Artistes</h2>
+    <a href={{ path('app_artist') }}>Artistes</a>
     </div>
 </div>
 {% endblock %}
