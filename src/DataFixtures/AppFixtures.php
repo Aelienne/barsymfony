@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Artist;
+use App\Entity\ArtisteCategory;
 use App\Entity\Bar;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -11,6 +12,7 @@ use Faker\Factory;
 
 class AppFixtures extends Fixture
 {
+    private const NAME_CATEGORY = ["Le classique", "Le jazz", "La variété française", "La variété internationale", "Les musiques du monde", "Le rap", "La musique électronique"];
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create();
@@ -29,6 +31,15 @@ class AppFixtures extends Fixture
             $manager->persist($bar);
         }
 
+        foreach (self::NAME_CATEGORY as $categoryName) {
+            $category = new ArtisteCategory;
+            $category
+                ->setName($categoryName)
+                ->setColor($faker->safeColorName());
+                $manager->persist($category);
+                $arrayCategory[] = $category;
+        }
+
         for ($i = 0; $i < 30; $i++) {
 
             $artist = new Artist();
@@ -39,7 +50,8 @@ class AppFixtures extends Fixture
                 ->setFirstName($faker->firstName())
                 ->setLastName($faker->lastName())
                 ->setPhone($faker->numerify('##########'))
-                ->setEmail($faker->email());
+                ->setEmail($faker->email())
+                ->setArtistCategory($faker->randomElement($arrayCategory));
 
             $manager->persist($artist);
         }

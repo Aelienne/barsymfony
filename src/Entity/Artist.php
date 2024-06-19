@@ -35,6 +35,10 @@ class Artist
     #[ORM\Column(length: 255, unique: true)]
     private ?string $email = null;
 
+    #[ORM\ManyToOne(inversedBy: 'artists')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ArtisteCategory $artistCategory = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +124,18 @@ class Artist
     public function setEmail(string $email): static
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getArtistCategory(): ?ArtisteCategory
+    {
+        return $this->artistCategory;
+    }
+
+    public function setArtistCategory(?ArtisteCategory $artistCategory): static
+    {
+        $this->artistCategory = $artistCategory;
 
         return $this;
     }
