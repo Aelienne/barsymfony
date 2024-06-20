@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Artist;
 use App\Entity\ArtisteCategory;
 use App\Entity\Bar;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -55,6 +56,14 @@ class AppFixtures extends Fixture
 
             $manager->persist($artist);
         }
+
+        $admin = new User();
+        $admin
+            ->setEmail('admin@admin.com')
+            ->setPassword('admin')
+            ->setRoles(['ROLE_ADMIN']);
+
+        $manager->persist($admin);
 
         $manager->flush();
     }
