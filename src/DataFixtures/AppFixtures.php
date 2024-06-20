@@ -40,7 +40,7 @@ class AppFixtures extends Fixture
                 $arrayCategory[] = $category;
         }
 
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 20; $i++) {
 
             $artist = new Artist();
             $artist

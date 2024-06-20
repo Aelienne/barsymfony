@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArtistRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -38,6 +40,17 @@ class Artist
     #[ORM\ManyToOne(inversedBy: 'artists')]
     #[ORM\JoinColumn(nullable: false)]
     private ?ArtisteCategory $artistCategory = null;
+
+    /**
+     * @var Collection<int, Bar>
+     */
+    #[ORM\ManyToMany(targetEntity: Bar::class, inversedBy: 'artists')]
+    private Collection $bar;
+
+    public function __construct()
+    {
+        $this->bar = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -136,6 +149,30 @@ class Artist
     public function setArtistCategory(?ArtisteCategory $artistCategory): static
     {
         $this->artistCategory = $artistCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Bar>
+     */
+    public function getBar(): Collection
+    {
+        return $this->bar;
+    }
+
+    public function addBar(Bar $bar): static
+    {
+        if (!$this->bar->contains($bar)) {
+            $this->bar->add($bar);
+        }
+
+        return $this;
+    }
+
+    public function removeBar(Bar $bar): static
+    {
+        $this->bar->removeElement($bar);
 
         return $this;
     }
