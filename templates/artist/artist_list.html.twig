@@ -7,7 +7,7 @@
 {% for artist in artists %}
 <div class="artcard">
   <h2>{{ artist.nickname }}</h2>
-    <img src="{{ artist.picture }}" alt="{{ artist.nickname }}">
+    <img src="{{ asset('/uploads/artiste/' ~ artist.picture) }}" alt="{{ artist.nickname }}">
     <p>Description: {{ artist.description }}</p>
     <p>Email: {{ artist.email }}</p>
     <p>Phone: {{ artist.phone }}</p>

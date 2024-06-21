@@ -173,4 +173,21 @@
 }
 * body div.container div.artcard p, * body div.container div.barcard p {
   color: white;
+}
+* body div.container div.artcard img {
+  width: 80px;
+  height: 80px;
+}
+* body footer {
+  background-color: rgb(2, 0, 20);
+  padding: 20px;
+}
+* body footer ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+* body footer ul li a {
+  color: white;
+  text-decoration: none;
 }/*# sourceMappingURL=app.css.map */

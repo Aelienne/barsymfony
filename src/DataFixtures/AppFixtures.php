@@ -21,12 +21,12 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create();
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 1; $i < 15; $i++) {
 
             $bar = new Bar();
             $bar
                 ->setName($faker->name)
-                ->setPicture($faker->image(null, 360, 360, 'animals', true))
+                ->setPicture('bar'. $i. ".jpg")
                 ->setDescription($faker->paragraph(2))
                 ->setEmail($faker->email())
                 ->setPhone($faker->numerify('##########'))
@@ -44,12 +44,12 @@ class AppFixtures extends Fixture
                 $arrayCategory[] = $category;
         }
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 1; $i < 16; $i++) {
 
             $artist = new Artist();
             $artist
                 ->setNickname($faker->unique()->word())
-                ->setPicture($faker->image(null, 360, 360, 'animals', true))
+                ->setPicture('photo'. $i. ".png")
                 ->setDescription($faker->paragraph(2))
                 ->setFirstName($faker->firstName())
                 ->setLastName($faker->lastName())

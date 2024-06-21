@@ -7,8 +7,10 @@ use App\Entity\ArtisteCategory;
 use App\Entity\Bar;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Image;
 
 class ArtistType extends AbstractType
 {
@@ -16,7 +18,12 @@ class ArtistType extends AbstractType
     {
         $builder
             ->add('nickname')
-            ->add('picture')
+            ->add('picture', FileType::class, [
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new Image()
+            ]])
             ->add('description')
             ->add('firstName')
             ->add('lastName')

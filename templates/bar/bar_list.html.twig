@@ -5,9 +5,9 @@
 {% block body %}
 <div class="container">
 {% for bar in bars %}
-<div class="barcard">
+<div class="barcard" style="background-image: url({{asset("uploads/bar/" ~ bar.picture)}}); background-size: cover;">
   <h2>{{ bar.name }}</h2>
-    <img src="{{ asset('uploads/' ~ bar.picture) }}" alt="{{ bar.name }}">
+    {# <img src="{{ asset('/uploads/bar/' ~ bar.picture) }}" alt="{{ bar.name }}"> #}
     <p>Descriptiontrong: {{ bar.description }}</p>
     <p>Email: {{ bar.email }}</p>
     <p>Phone: {{ bar.phone }}</p>
