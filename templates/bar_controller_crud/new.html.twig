@@ -6,6 +6,10 @@
     <h1>Create new Bar</h1>
 
     {{ include('bar_controller_crud/_form.html.twig') }}
-
+    {% if app.user %}
+    <a href="{{ path('app_bar') }}">back to list</a>
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('app_bar_controller_crud_index') }}">back to list</a>
+    {% endif %}
 {% endblock %}
