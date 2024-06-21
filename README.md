@@ -1,2 +1,2 @@
 Voila mon projet Symfony
-Connexion : User : bobby.bob@test.com, Admin : admin@admin.com.
+Connexion : User : bobby.bob@test.com mdp : bobby, Admin : admin@admin.com mdp : admin.
