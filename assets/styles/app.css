@@ -177,6 +177,7 @@
 * body div.container div.artcard img {
   width: 80px;
   height: 80px;
+  align-self: center;
 }
 * body footer {
   background-color: rgb(2, 0, 20);
