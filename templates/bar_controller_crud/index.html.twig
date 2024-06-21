@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bar index{% endblock %}
+
+{% block body %}
+    <h1>Bar index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Picture</th>
+                <th>Description</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Adress</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bar in bars %}
+            <tr>
+                <td>{{ bar.id }}</td>
+                <td>{{ bar.name }}</td>
+                <td>{{ bar.picture }}</td>
+                <td>{{ bar.description }}</td>
+                <td>{{ bar.email }}</td>
+                <td>{{ bar.phone }}</td>
+                <td>{{ bar.adress }}</td>
+                <td>
+                    <a href="{{ path('app_bar_controller_crud_show', {'id': bar.id}) }}">show</a>
+                    <a href="{{ path('app_bar_controller_crud_edit', {'id': bar.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bar_controller_crud_new') }}">Create new</a>
+{% endblock %}

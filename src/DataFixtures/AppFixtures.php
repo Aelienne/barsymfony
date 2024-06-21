@@ -9,10 +9,13 @@ use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+    public function __construct(
+        private UserPasswordHasherInterface $passwordHasher
+    ){}
     private const NAME_CATEGORY = ["Le classique", "Le jazz", "La variété française", "La variété internationale", "Les musiques du monde", "Le rap", "La musique électronique"];
     public function load(ObjectManager $manager): void
     {
@@ -60,7 +63,7 @@ class AppFixtures extends Fixture
         $admin = new User();
         $admin
             ->setEmail('admin@admin.com')
-            ->setPassword('admin')
+            ->setPassword($this->passwordHasher->hashPassword($admin, 'admin'))
             ->setRoles(['ROLE_ADMIN']);
 
         $manager->persist($admin);
