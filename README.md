@@ -7,7 +7,7 @@ Feartures :
 -"Artist management" les opérations CRUD, avec uploads d'images et display.  
 -"Login, Registration" formulaires pour s'inscrire ainsi que pour se connecter avec un hasherpassword.  
 -"Roles/Contrôle d'accès" deux roles distincts ADMIN, USER qui ont chacun des accès différents. Le User peut créer un bar ou un artist et consulter tout le site sans avoir d'actions particulières, l'admin peut delete et edit (CRUD USER en plus).  
--"Vue" j'ai changé le display de certaines choses en fonction des connections User et/ou Admin pour qu'il y ai des boutons en plus.  
+-"Vue" j'ai changé le display de certaines choses en fonction des connections User et/ou Admin pour qu'il y ai des fonctionnalités en plus.  
 -"EasyAdmin" pour la gestion des CRUD j'ai utilisé EasyAdmin.  
 -"Controller/Contrôle d'accès" j'ai modifié et ajouté des routes.  
 
