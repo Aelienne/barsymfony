@@ -1,6 +1,6 @@
-Voila mon projet Symfony
-Connexion : User : bobby.bob@test.com mdp : bobby, Admin : admin@admin.com mdp : admin.
-Dans ce projet a été designé autour du management et du display d'informations concernant des bars et des artistes.
+Voila mon projet Symfony  
+Connexion : User : bobby.bob@test.com mdp : bobby, Admin : admin@admin.com mdp : admin.  
+Dans ce projet a été designé autour du management et du display d'informations concernant des bars et des artistes.  
 
 Feartures :
 -"Bar management" les opérations CRUD, avec uploads d'images et display.
