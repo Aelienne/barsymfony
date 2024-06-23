@@ -6,6 +6,7 @@ use App\Entity\Bar;
 use App\Form\BarType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -30,6 +31,24 @@ class BarController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $pictureFile = $form->get('picture')->getData();
+    
+                if ($pictureFile) {
+                    $newFilename = uniqid().'.'.$pictureFile->guessExtension();
+    
+                    try {
+                        $pictureFile->move(
+                            $this->getParameter('bar_pictures_directory'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                    }
+    
+                    $bar->setPicture($newFilename);
+                } else {
+                    $this->addFlash('error', 'Please upload a picture.');
+                    return $this->redirectToRoute('app_bar_new');
+                }
             $entityManager->persist($bar);
             $entityManager->flush();
 

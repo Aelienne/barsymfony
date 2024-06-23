@@ -12,6 +12,11 @@
     <p>Email: {{ bar.email }}</p>
     <p>Phone: {{ bar.phone }}</p>
     <p>Address: {{ bar.adress }}</p>
+    {% if is_granted('ROLE_ADMIN') %}
+    <p>
+      <a href={{ path('app_bar_controller_crud_show', {'id': bar.id}) }}>Details</a>
+    <p>
+    {% endif %}
 </div>
 {% endfor %}
 </div>

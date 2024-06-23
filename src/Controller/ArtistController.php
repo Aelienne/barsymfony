@@ -6,6 +6,7 @@ use App\Entity\Artist;
 use App\Form\ArtistType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -31,6 +32,25 @@ class ArtistController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+                $pictureFile = $form->get('picture')->getData();
+    
+                if ($pictureFile) {
+                    $newFilename = uniqid().'.'.$pictureFile->guessExtension();
+    
+                    try {
+                        $pictureFile->move(
+                            $this->getParameter('artist_pictures_directory'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                    }
+    
+                    $artist->setPicture($newFilename);
+                } else {
+                    $this->addFlash('error', 'Please upload a picture.');
+                    return $this->redirectToRoute('app_artist_new');
+                }
+    
             $entityManager->persist($artist);
             $entityManager->flush();
 

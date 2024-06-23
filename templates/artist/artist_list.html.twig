@@ -12,11 +12,12 @@
     <p>Email: {{ artist.email }}</p>
     <p>Phone: {{ artist.phone }}</p>
     <p>Style: {{ artist.artistCategory.name }}</p>
-    {% if app.user %}
+    {% if is_granted('ROLE_ADMIN') %}
     <p>
       <a href={{ path('app_artist_controller_crud_show', {'id': artist.id}) }}>Details</a>
-    {% endif %}
     <p>
+    {% endif %}
+    
 </div>
 {% endfor %}
 <div>
