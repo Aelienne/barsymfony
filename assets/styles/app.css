@@ -161,7 +161,7 @@
   flex-direction: column;
   width: 320px;
   height: 250px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin: 20px;
   text-align: center;
   border: 2px solid white;
@@ -175,25 +175,12 @@
 }
 * body div.container div.artcard p, * body div.container div.barcard p {
   color: white;
+  padding: 2px;
 }
 * body div.container div.artcard img {
   width: 80px;
   height: 80px;
   align-self: center;
-}
-* body footer {
-  background-color: rgb(2, 0, 20);
-  padding: 20px 0px 20px 0;
-}
-* body footer ul {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-}
-* body footer ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
 }
 * body table.table {
   color: white;
@@ -239,4 +226,19 @@
   text-decoration: none;
   color: white;
   font-size: 25px;
+}
+* footer.footer {
+  background-color: rgb(2, 0, 20);
+  padding: 20px 0px 20px 0;
+  width: 98.5vw;
+}
+* footer.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+* footer.footer ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
 }/*# sourceMappingURL=app.css.map */
