@@ -11,7 +11,7 @@ Feartures :
 -"EasyAdmin" pour la gestion des CRUD j'ai utilisé EasyAdmin.  
 -"Controller/Contrôle d'accès" j'ai modifié et ajouté des routes.  
 
--Le peut de style a été fait en SASS  
+-Le peu de style a été fait en SASS  
 
 -J'ai rencontré des problèmes sur l'uploads d'image, j'ai du donc rajouter des vérifications dans BarController et ArtistController et rajouter des paramètres dans services.yaml pour le chemin des images. J'ai essayé d'ajouter un flash sur l'uploads en cas de non fichier, mais je crois que ça ne fonctionne pas.  
 
